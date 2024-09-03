@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragment/main}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <title>Chat Room</title>
+</head>
+<body>
+
+<div class="chat-container">
+  <h1>Anonymous Chat Room</h1>
+
+  <div class="messages">
+    <ul>
+      <li th:each="message : ${messages}">
+        <div class="message">
+          <strong th:text="${message.user}">Username</strong> :
+          <span th:text="${message.message}">Message</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <form id="chatForm" action="/send" method="post">
+    <input type="text" name="user" placeholder="Enter your username" required>
+    <input type="text" name="message" placeholder="Enter your message" required>
+    <button type="button" onclick="sendMessage()">Send</button>
+  </form>
+</div>
+
+<script src="/static/js/script.js"></script>
+</body>
+</html>
