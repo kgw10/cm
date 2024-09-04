@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragment/main}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <title>Chat Room</title>
+</head>
+<body>
+
+<div id="joinForm">
+  <form method="post" action="/logName/name" th:object="${userName}">
+    <div class="formData">
+
+
+      <div class="inputField">
+        <label th:for="name">이름</label>
+        <input type="text" th:field="*{name}" class="formInput" placeholder="이름을 입력하세요">
+      </div>
+
+      <div class="joinBt">
+        <button id="btn-join">등록</button>
+      </div>
+  </form>
+</div>
+</body>
+</html>
